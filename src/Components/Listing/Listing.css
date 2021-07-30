@@ -1,0 +1,18 @@
+.container {
+  font-size: large;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: white;
+}
+
+h1,
+th,
+td {
+  padding: 10px;
+  margin-right: 10%;
+  text-align: center;
+}
+
+.btn-primary {
+  margin: 10px;
+}

@@ -53,17 +53,6 @@ const userReducer = (state = initialState, action) => {
       };
     }
 
-    // case types.UPDATE_POST: {
-    //   return {
-    //     ...state,
-    //     users: [
-    //       { id: action.id, name: action.text },
-    //       ...state.users
-    //         .filter((todo) => todo.id !== action.id)
-    //     ].sort((a, b) => a.id - b.id),
-    //   };
-    // }
-
     case types.UPDATE_POST: {
       return {
         ...state,

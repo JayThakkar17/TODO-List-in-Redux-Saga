@@ -7,6 +7,16 @@ const initialState = {
   error: null,
 };
 
+const deleteById = (state, id) => {
+  const post = state.users.filter((post) => {
+    if (post.id !== id) {
+      return true;
+    }
+    return false;
+  });
+  return post;
+};
+
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_USERS_REQUEST: {
@@ -29,6 +39,40 @@ const userReducer = (state = initialState, action) => {
         error: action.payload.error,
       };
     }
+    case types.DELETE_POST: {
+      return {
+        ...state,
+        users: deleteById(state, action.id),
+      };
+    }
+
+    case types.ADD_POST: {
+      return {
+        ...state,
+        users: [...state.users, action.payload],
+      };
+    }
+
+    // case types.UPDATE_POST: {
+    //   return {
+    //     ...state,
+    //     users: [
+    //       { id: action.id, name: action.text },
+    //       ...state.users
+    //         .filter((todo) => todo.id !== action.id)
+    //     ].sort((a, b) => a.id - b.id),
+    //   };
+    // }
+
+    case types.UPDATE_POST: {
+      return {
+        ...state,
+        users: state.users.map((item) =>
+          item.id === action.id ? { ...item, name: action.item } : item
+        ),
+      };
+    }
+
     default:
       return state;
   }

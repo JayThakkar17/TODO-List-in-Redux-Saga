@@ -35,6 +35,28 @@ export const getUserError = (error) => {
   };
 };
 
+export const deletePost = (id) => {
+  return {
+    type: types.DELETE_POST,
+    id: id,
+  };
+};
+
+export const addPost = (text) => {
+  return {
+    type: types.ADD_POST,
+    payload: text,
+  };
+};
+
+export const updatePost = ({ id, item }) => {
+  return {
+    type: types.UPDATE_POST,
+    id,
+    item,
+  };
+};
+
 function* userSaga() {
   yield takeEvery(types.GET_USERS_REQUEST, fetchUsers);
 }
